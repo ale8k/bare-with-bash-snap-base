@@ -26,8 +26,6 @@ DIRS := dev \
 
 install:
 	$(foreach dir,$(DIRS),mkdir -p $(DESTDIR)/$(dir);)
-	sudo apt-get update
-	sudo apt-get install busybox-static
 
 clean:
 	rm -rf $(DESTDIR)

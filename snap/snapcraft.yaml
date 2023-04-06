@@ -1,17 +1,19 @@
-name: bare-with-bash
+name: bare-bash
 version: "1.0"
 summary: Empty base snap for snaps that need no libc or similar.
 description: |
     An empty base snap that contains nothing except the directories
-    required as mount points.
+    required as mount points and busybox-static for sh & utils.
 architectures:
   - all
 base: bare
 build-base: core18
-grade: stable
+type: base
 confinement: strict
 
 parts:
   dir-layout:
     plugin: make
+    stage-packages:
+      - busybox-static
     source: .
